@@ -94,7 +94,7 @@ function RegisterUser() {
             // console.log(requestOpt)
             setState(RegistrationState.PROCESSING);
             const response = await fetch(
-                "http://localhost:3000/api/auth/register",
+                "http://localhost:3003/api/auth/register",
                 requestOpt
             )
             if(!response.ok) {

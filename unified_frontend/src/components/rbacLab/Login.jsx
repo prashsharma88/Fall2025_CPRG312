@@ -64,7 +64,7 @@ function Login() {
         try {
             console.log(requestOpt)
             const response = await fetch(
-                "http://localhost:3000/api/auth/login",
+                "http://localhost:3003/api/auth/login",
                 requestOpt
             )
             if(!response.ok) {
