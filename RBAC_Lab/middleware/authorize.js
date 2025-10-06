@@ -1,6 +1,6 @@
 const authorizeRequest = (roles= []) => {
-    console.log("Autorizing request");
     return (req, res, next) => {
+        console.log("Autorizing request");
         if(roles.includes(req.user.role)) {
             next();
         } else {

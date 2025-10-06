@@ -11,8 +11,4 @@ adminRouter.get('/admin', authorizeRequest(['admin', 'intern','dev']), (req, res
     res.status(200).json({message: "Access grated to admin user"});
 });
 
-adminRouter.post('/admin', authorizeRequest(['admin', 'manager']), (req,res) => {
-    // TODO: Implement this route
-});
-
 module.exports = adminRouter;

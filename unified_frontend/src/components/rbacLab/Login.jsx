@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../hook/useAuth"; 
 
 function Login() {
 
@@ -27,6 +28,8 @@ function Login() {
         password: "",
         role:"",
     }
+
+    const { setAuth } = useAuth();
 
     const [user, setUser] = useState(defaultUser);
     const [loginError, setLoginError] = useState(false);
@@ -71,13 +74,17 @@ function Login() {
                 throw new Error('HTTP error status: ' + response.status);
             }
             const data = await response.json();
-
+    
+            
             const {email,role} = data;
-            setLoggedInUser({
+            const loginUser = {
                 status: true,
                 email: email,
                 role: role,
-            });
+            };
+            setLoggedInUser(loginUser);
+            setAuth({...loginUser, auth_token: data.auth_token})
+            navigate('/rbac/project');
         } catch(error){
             console.error("Error while creating user");
             console.error(error);

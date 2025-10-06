@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/User');
 const argon2 = require('argon2');       // Library to create hash
 const jwt = require('jsonwebtoken');    // Library to generate JWT token
+const decode = require('../middleware/decodeJWT');
 
 const router = express.Router();
 
@@ -66,19 +67,28 @@ router.post('/login', async (req,res) => {
         res.cookie('auth_token', token, {
             httpOnly: true, // CRITICAL: Prevents client-side JS from accessing the cookie.
             secure: false, // Set it true for HTTPS (production environment)
-            maxAge: 1000 * 60 * 60 // Match token expiration (15 minutes)
+            sameSite: 'none', 
+            maxAge: 1000 * 60 * 60, // Match token expiration (15 minutes)
+            domain: 'localhost',
         });
         res.status(200).json({
             message: "Login successful",
             name: user.name,
             email: user.email,
             role: user.role,
+            auth_token: token,
         });
     } catch(error) {
         console.error("Error while login");
         console.error(error);
         res.status(500).json({message:"Internal server error"});
     }
+});
+
+router.post('/logout', decode, (req, res) => {
+    console.log(`Logging out ${req.user.name}`);
+    res.clearCookie();
+    res.status(200);
 });
 
 module.exports = router;
