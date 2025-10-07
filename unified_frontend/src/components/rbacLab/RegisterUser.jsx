@@ -82,7 +82,7 @@ function RegisterUser() {
             alert("Please fill all the details!!!")
             return;
         }
-        alert(`name: ${user.name}, email: ${user.email}, password: ${user.password}, role: ${user.role}`);
+        // alert(`name: ${user.name}, email: ${user.email}, password: ${user.password}, role: ${user.role}`);
         const requestOpt = {
             method: 'POST',
             headers: {
@@ -113,7 +113,7 @@ function RegisterUser() {
             console.error(error);
             setState(RegistrationState.FAILED);
         }
-        alert(`name: ${user.name}, email: ${user.email}, password: ${user.password}, role: ${user.role}`);
+        // alert(`name: ${user.name}, email: ${user.email}, password: ${user.password}, role: ${user.role}`);
         resetForm();
     }
     
