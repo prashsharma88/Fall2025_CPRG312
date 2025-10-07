@@ -76,9 +76,10 @@ function Login() {
             const data = await response.json();
     
             
-            const {email,role} = data;
+            const {name, email,role} = data;
             const loginUser = {
                 status: true,
+                name: name,
                 email: email,
                 role: role,
             };
