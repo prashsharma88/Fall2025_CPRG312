@@ -66,7 +66,7 @@ function Project() {
                 method: reqMethod,
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${auth.auth_token}`
+                    "Authorization": `Bearer ${auth.auth_token}`,
                 }
             })
             if(!response.ok) {
