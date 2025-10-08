@@ -1,8 +1,8 @@
 ## Configuration:
 
-- Create a **.env** at the root of **Password_lab** folder
+- Create a **.env** at the root of **RBAC_Lab** folder
 - Add below variables in that .env file
-  > #<span style="color:red;">NOTE:</span> If you change the port value and wish to use **unified frontend** then you will have to update the port number in all the fetch request inside **components/passwordLab** folder
+  > #<span style="color:red;">NOTE:</span> If you change the port value and wish to use **unified frontend** then you will have to update the port number in all the fetch request inside **components/rbacLab** folder
   >
   > PORT=3001
   >
