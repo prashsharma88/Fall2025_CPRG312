@@ -4,7 +4,7 @@ const authorizeRequest = (roles= []) => {
         if(roles.includes(req.user.role)) {
             next();
         } else {
-            res.status(403).json({message:"Not Authorized. Access denied"});
+            res.status(401).json({message:"Not Authorized. Access denied"});
         }
     }
 }

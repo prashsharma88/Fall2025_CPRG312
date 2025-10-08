@@ -11,6 +11,10 @@ import Login from './components/rbacLab/Login';
 import RegisterUser from './components/rbacLab/RegisterUser';
 import Project from './components/rbacLab/Project';
 import { AuthProvider } from './context/AuthProvider';
+import Abac from './pages/Abac';
+import AbacLogin from './components/abacLab/AbacLogin';
+import AbacRegisterUser from './components/abacLab/AbacRegister';
+import Options from './components/abacLab/Options';
 
 function App() {
 
@@ -31,6 +35,11 @@ function App() {
                 <Route path='/rbac/login' element={<Login/>}/>
                 <Route path='/rbac/register' element={<RegisterUser/>} />
                 <Route path='/rbac/project' element={<Project />} />
+              </Route>
+              <Route path='abac' element={<Abac />}>
+                <Route path='/abac/login' element={<AbacLogin />} />
+                <Route path='/abac/register' element={<AbacRegisterUser />} />
+                <Route path='/abac/tasks' element={<Options />} />
               </Route>
           </Routes>
         </AuthProvider>

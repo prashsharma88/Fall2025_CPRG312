@@ -1,4 +1,4 @@
-import useAuth from "../../hook/useAuth"; 
+import useAuth from "../hook/useAuth"; 
 import { useNavigate } from "react-router-dom";
 
 function Logout() {
@@ -7,7 +7,7 @@ function Logout() {
     return (
         <p className="btn" onClick={() => {
             setAuth(null);
-            navigate('/rbac/login')
+            navigate('/')
         }}>Logout</p>
     );
 }

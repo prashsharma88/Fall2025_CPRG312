@@ -2,7 +2,7 @@ import { useState } from "react";
 import useAuth from "../../hook/useAuth";
 import Logout from "../Logout";
 
-function Project() {
+function Options() {
 
     const { auth } = useAuth();
     const style = {
@@ -43,21 +43,24 @@ function Project() {
     const [serverResponse, setServerResponse] = useState(null);
 
     async function handleBtnClick(event) {
-        let reqURL = "http://localhost:3003/project";
+        let reqURL = "http://localhost:3004/authorize";
         let reqMethod = "GET";
         switch(event.target.id) {
-            case 'view-project':
-                console.log("view-project")
-                reqURL = reqURL+'/demo-project'
+            case 'payrolls':
+                console.log("payrolls")
+                reqURL = reqURL+'/payrolls'
                 break;
-            case 'create-project':
-                console.log("create-project")
-                reqMethod = 'POST';
+            case 'security':
+                console.log("security")
+                reqURL = reqURL+'/security'
                 break;
-            case 'new-issue':
-                console.log("new-issue")
-                reqURL = reqURL+'/issue'
-                reqMethod = 'POST'
+            case 'onboarding':
+                console.log("onboarding")
+                reqURL = reqURL+'/onboard'
+                break;
+            case 'general':
+                console.log("general")
+                reqURL = reqURL+'/general'
                 break;
         }
 
@@ -78,10 +81,10 @@ function Project() {
             }
             const responseData = await response.json();
             console.log(responseData);
-            setServerResponse(JSON.stringify(responseData));
-            
+            // setServerResponse(JSON.stringify(responseData));
+            setServerResponse(responseData.message);
         } catch(err) {
-            console.error("ERROR : PROJECT REQUEST")
+            console.error("ERROR : Task Request")
             console.error(err);
         }
     }
@@ -89,9 +92,10 @@ function Project() {
         <main>
             <h3>Project Options</h3>
             <section id="btn-area" style={style["btn-area"]}>
-                <p id="view-project" className="btn" onClick={handleBtnClick}>View Project</p>
-                <p id="create-project" className="btn" onClick={handleBtnClick}>Create Project</p>
-                <p id="new-issue" className="btn" onClick={handleBtnClick}>New Issue</p>
+                <p id="payrolls" className="btn" onClick={handleBtnClick}>Payrolls (Finance)</p>
+                <p id="security" className="btn" onClick={handleBtnClick}>Security (Admin)</p>
+                <p id="onboarding" className="btn" onClick={handleBtnClick}>Onboarding (HR)</p>
+                <p id="general" className="btn" onClick={handleBtnClick}>General</p>
                 <Logout />
             </section>
 
@@ -99,7 +103,8 @@ function Project() {
                 <div style={style["user-div"]}>
                     <h3>Current User: </h3>
                     <p>Name: {auth.name}</p>
-                    <p>Role: {auth.role}</p>    
+                    <p>Role: {auth.role}</p> 
+                    <p>Department: {auth.department}</p>   
                 </div>
                 <div id="response-div" style={style["response-div"]}>
                     <h3>Server Response</h3>
@@ -111,4 +116,4 @@ function Project() {
     );
 }
 
-export default Project;
+export default Options;
