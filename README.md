@@ -18,4 +18,5 @@ If you want to run any particular lab (backend server)
 Now you server is running and you can test it using postman. If you want to use the unified frontend also then
 
 1. Navigate to **unified_frontend** in command prompt/terminal
-2. Run >npm run dev
+2. run npm install
+3. Run >npm run dev
