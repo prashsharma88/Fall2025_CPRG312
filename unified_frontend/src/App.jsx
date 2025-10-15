@@ -15,6 +15,9 @@ import Abac from './pages/Abac';
 import AbacLogin from './components/abacLab/AbacLogin';
 import AbacRegisterUser from './components/abacLab/AbacRegister';
 import Options from './components/abacLab/Options';
+import GoogleOAuth from './pages/GoogleOAuth';
+import LoginOAuth from './components/oauthLab/LoginOAuth';
+import DashboardOAuth from './components/oauthLab/DashboardOAuth';
 
 function App() {
 
@@ -40,6 +43,10 @@ function App() {
                 <Route path='/abac/login' element={<AbacLogin />} />
                 <Route path='/abac/register' element={<AbacRegisterUser />} />
                 <Route path='/abac/tasks' element={<Options />} />
+              </Route>
+              <Route path='oauth_lab' element={ <GoogleOAuth /> } >
+                <Route path='/oauth_lab/login' element={ <LoginOAuth /> } />
+                <Route path='/oauth_lab/dashboard' element={ <DashboardOAuth /> } />
               </Route>
           </Routes>
         </AuthProvider>

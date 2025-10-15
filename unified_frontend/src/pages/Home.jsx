@@ -8,6 +8,7 @@ function Home() {
                 <Link className='btn' to="/password_hashing_demo/login">Password Hashing Demo</Link>
                 <Link className='btn' to="/rbac/login">RBAC Demo</Link>
                 <Link className='btn' to="/abac/login">ABAC Demo</Link>
+                <Link className='btn' to="/oauth_lab/login">O-Auth Demo</Link>
             </nav>
         </main>
     );

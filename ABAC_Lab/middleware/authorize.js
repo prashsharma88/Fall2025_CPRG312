@@ -1,5 +1,3 @@
-// import UserModel from "../models/UserModel";
-
 export const authorizeUser = (allowedDepartments = []) => {
     return (req, res, next) => {
         const userDept = req.user.department;
