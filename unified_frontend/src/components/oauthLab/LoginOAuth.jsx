@@ -2,7 +2,7 @@ const LoginOAuth = () => {
 
     const handleSignInbtnClick = async () => {
         console.log("handle signin btn click");
-        window.location.href = "http://localhost:3005/auth/google"
+        window.location.href = "http://localhost:3006/auth/google"
     }
     return (
         <section>
